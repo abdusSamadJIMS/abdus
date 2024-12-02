@@ -36,6 +36,9 @@ export const metadata: Metadata = {
             url: `${baseUrl}/twitter-image.png`,
         },
     },
+    alternates: {
+        canonical: `${baseUrl}/blog`
+    }
 
 }
 

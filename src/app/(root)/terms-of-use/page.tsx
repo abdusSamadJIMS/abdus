@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         },
     },
     alternates: {
-        canonical: `${baseUrl}/term-of-use`
+        canonical: `${baseUrl}/terms-of-use`
     }
 }
 
