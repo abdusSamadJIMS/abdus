@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import DownloadCV from './download-cv'
-import Image from 'next/image'
+// import Image from 'next/image'
 import { GithubIcon, InstagramIcon, LinkedinIcon } from 'lucide-react'
 import Link from 'next/link'
 import { TwitterIcon } from '@sanity/icons'
 import { sanityFetch } from '@/sanity/lib/live'
 import { AUTHOR_SOCIAL, RESUME } from '@/sanity/lib/queries'
+import LazyBackground from './lazy-background'
 
 const HomeHero = async () => {
     const { data: social } = await sanityFetch({ query: AUTHOR_SOCIAL, tag: "author" })
@@ -136,33 +137,16 @@ const HomeHero = async () => {
                         I&apos;m full-stack developer and I work remotely from Delhi,India
                     </p>
                 </div>
-                <div
+                <Suspense>
 
-                    className="h-full 
-                bg-[url('/myPhoto.png')]
-                bg-blend-darken
-                
-                bg-no-repeat
-                flex-1
-                relative
-                lg:bg-cover
-                md:bg-cover
-                sm:bg-contain
-                bg-contain
-                max-sm:bg-left
-                max-md:bg-bottom
-                
-                ">
-                    <Image
-                        src={'/myPhoto.png'}
-                        alt={'my photo'}
-                        width={100}
-                        height={100}
-                        className='hidden' />
-                    <DownloadCV
-                        resume={resume}
-                    />
-                </div>
+                    <LazyBackground
+                        url='/myPhoto.png'
+                    >
+                        <DownloadCV
+                            resume={resume}
+                        />
+                    </LazyBackground>
+                </Suspense>
             </div>
         </section>
     )
