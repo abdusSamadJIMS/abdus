@@ -18,7 +18,6 @@ export default function LazyBackground({ children, url, className }: { children?
 
         const element = document.getElementById("lazy-bg");
         if (element) observer.observe(element);
-
         return () => observer.disconnect();
     }, []);
 
