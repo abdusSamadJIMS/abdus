@@ -1,4 +1,5 @@
 User-agent: *
+Crawl-delay: 10
 Disallow: 
 Disallow: /studio
 Sitemap: http://abdus.site/sitemap.xml
